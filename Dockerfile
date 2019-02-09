@@ -37,7 +37,7 @@ RUN docker-php-ext-install \
 RUN pecl install mcrypt-1.0.2
 RUN docker-php-ext-enable mcrypt
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=1.2.0
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 
 ENV APP_DIR "/src"
