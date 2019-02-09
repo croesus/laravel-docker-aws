@@ -29,10 +29,13 @@ RUN docker-php-ext-install \
   gd \
   intl \
   mbstring \
-  mcrypt \
   pdo_mysql \
   xsl \
   zip
+
+# mcrypt removed from PHP7.2
+RUN pecl install mcrypt-1.0.2
+RUN docker-php-ext-enable mcrypt
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=1.2.0
 
