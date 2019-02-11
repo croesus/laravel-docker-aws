@@ -100,11 +100,11 @@ if [ -f /src/composer.lock ]; then
    echo "Starting the cron service"
    /usr/sbin/cron
 
-   echo "Skipping supervisord and laravel worker"
-   #su -c "service supervisor restart" -s /bin/sh root
-   #su -c "/usr/bin/supervisorctl reread" -s /bin/sh root
-   #su -c "/usr/bin/supervisorctl update" -s /bin/sh root
-   #su -c "/usr/bin/supervisorctl start laravel-worker:*" -s /bin/sh root
+   echo "Starting supervisord and laravel worker"
+   service supervisor start
+   /usr/bin/supervisorctl reread
+   /usr/bin/supervisorctl update
+   /usr/bin/supervisorctl start laravel-worker:*
 
    echo "Starting php-fpm"
    /usr/local/sbin/php-fpm
