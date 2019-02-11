@@ -13,6 +13,7 @@ RUN apt-get update \
     libxslt1-dev \
     python-pip \
     redis-tools \
+    vim \
     supervisor
 
 
